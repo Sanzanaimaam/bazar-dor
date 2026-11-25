@@ -164,7 +164,7 @@ const UserInformation = () => {
             ) : (
                 <div className="flex items-center gap-3">
                     <Link
-                        href="/sign_in"
+                        href="/sing_in"
                         className="rounded-full border border-[#0F6A36] px-5 py-2 text-sm font-semibold text-[#0F6A36] transition-all duration-200 hover:bg-[#0F6A36] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0F6A36]"
                     >
                         সাইন ইন

@@ -20,14 +20,23 @@ const zigzagRight = {
 const inputClass =
     "w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-[#0F6A36] focus:ring-2 focus:ring-[#0F6A36]/20";
 
+const inputErrorClass =
+    "!border-red-500 focus:!border-red-500 focus:!ring-red-500/20";
+
 const SignIn = () => {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+    const [authError, setAuthError] = useState("");
+
+    const clearError = () => {
+        if (authError) setAuthError("");
+    };
 
     const onSubmit = async (e: React.SubmitEvent<HTMLElement>) => {
         e.preventDefault();
         setLoading(true);
+        setAuthError("");
 
         const formData = new FormData(e.currentTarget as HTMLFormElement);
 
@@ -45,8 +54,12 @@ const SignIn = () => {
         setLoading(false);
 
         if (error) {
-            console.log("Login Error:", error);
-            toast.error(error.message || "সাইন ইন করা যায়নি!");
+         
+            if (error.status === 401 || error.code === "ইমেইল বা পাসওয়ার্ড ভুল হয়েছে") {
+                setAuthError("ইমেইল বা পাসওয়ার্ড ভুল হয়েছে");
+            } else {
+                toast.error(error.message || "সাইন ইন করা যায়নি!");
+            }
             return;
         }
 
@@ -151,7 +164,9 @@ const SignIn = () => {
                                 type="email"
                                 name="email"
                                 placeholder="আপনার ইমেইল লিখুন"
-                                className={inputClass}
+                                className={`${inputClass} ${authError ? inputErrorClass : ""}`}
+                                aria-invalid={!!authError}
+                                onChange={clearError}
                                 required
                             />
                         </div>
@@ -166,9 +181,12 @@ const SignIn = () => {
                                     type={showPassword ? "text" : "password"}
                                     name="password"
                                     placeholder="আপনার পাসওয়ার্ড লিখুন"
-                                    className={`${inputClass} pr-20`}
+                                    className={`${inputClass} pr-20 ${authError ? inputErrorClass : ""}`}
+                                    aria-invalid={!!authError}
+                                    onChange={clearError}
                                     required
                                 />
+
                                 <button
                                     type="button"
                                     onClick={() => setShowPassword(!showPassword)}
@@ -177,6 +195,29 @@ const SignIn = () => {
                                     {showPassword ? "লুকান" : "দেখুন"}
                                 </button>
                             </div>
+
+                            {/* ভুল ইমেইল বা পাসওয়ার্ডের বার্তা */}
+                            {authError && (
+                                <p
+                                    role="alert"
+                                    className="mt-2 flex items-center gap-2 text-sm font-medium text-red-600"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                        className="h-4 w-4 shrink-0"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                    {authError}
+                                </p>
+                            )}
                         </div>
 
                         {/* Forgot Password */}
