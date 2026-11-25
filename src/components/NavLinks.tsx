@@ -13,9 +13,17 @@ const NavLinks = async() => {
     const nav:NavLinksType[]=data
 
     return (
-        <div className='max-w-6xl mx-auto flex pl-8 gap-5'>
+        <div className='max-w-6xl mx-auto flex gap-5'>
             {
-                nav.map((links, id)=><Link key={id} href={`/category/${links.id}`}>{links.icon}{links.nameBn}</Link>)
+                nav.map((links, id)=>(
+                    <Link
+                        key={id}
+                        href={`/category/${links.id}`}
+                        className="text-gray-500 hover:text-gray-800 transition-colors"
+                    >
+                        {links.icon}{links.nameBn}
+                    </Link>
+                ))
             }
         </div>
     );
