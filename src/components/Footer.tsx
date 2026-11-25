@@ -18,7 +18,7 @@ const supportLinks = [
 
 const contact = {
     email: "info@bazardor.com",
-    phone: "+৮৮০ ১৭০০-০০০০০০",
+    phone: "+৮৮০ ১৭০০-xxxxxxx",
     address: "ঢাকা, বাংলাদেশ",
 };
 
