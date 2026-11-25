@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import NavLinks from './NavLinks';
+import UserInformation from './UserInformation';
 
 const HeaderPage = () => {
     const date = new Date().toLocaleDateString("bn-BD", {
@@ -30,15 +31,7 @@ const HeaderPage = () => {
                 </div>
 
                 {/* Authentication Buttons */}
-                <div className="flex items-center gap-3">
-                    <button className="btn btn-outline border-green-700 text-green-700 hover:bg-green-700 hover:text-white">
-                        সাইন ইন
-                    </button>
-
-                    <button className="btn bg-green-800 text-white border-none hover:bg-green-900">
-                        সাইন আপ
-                    </button>
-                </div>
+                <UserInformation/>
 
             </div>
             <hr className="my-2 border-gray-300" />
