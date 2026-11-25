@@ -36,9 +36,17 @@ const SignIn = () => {
         }
     };
 
-    const signIn = async () => {
-        const data = await authClient.signIn.social({
+    const signInGoogle = async () => {
+        await authClient.signIn.social({
             provider: "google",
+            callbackURL: "/"
+        });
+    };
+
+    const signInGithub = async () => {
+        await authClient.signIn.social({
+            provider: "github",
+            callbackURL: "/"
         });
     };
 
@@ -108,8 +116,11 @@ const SignIn = () => {
                 </p>
 
             </form>
-            <button className="btn" onClick={signIn}>
+            <button className="btn" onClick={signInGoogle}>
                 Sign In with Google
+            </button>
+            <button className="btn" onClick={signInGithub}>
+                Sign In with Github
             </button>
         </div>
     );

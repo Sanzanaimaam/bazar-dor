@@ -8,6 +8,8 @@ import { useRouter } from "next/navigation";
 const UserInformation = () => {
     const { data: session } = authClient.useSession();
     const user = session?.user;
+    console.log("Logged in user:", user);
+    console.log("Profile image:", user?.image);
     const router = useRouter();
 
     const handleSignOut = async () => {
@@ -33,6 +35,8 @@ const UserInformation = () => {
                                     <img
                                         src={user.image}
                                         alt={user.name}
+                                        referrerPolicy="no-referrer"
+                                        className="w-10 h-10 rounded-full object-cover"
                                     />
                                 ) : (
                                     <div className="bg-green-800 text-white flex items-center justify-center text-xl font-bold w-10 h-10 rounded-full">
