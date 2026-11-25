@@ -6,7 +6,7 @@ import Marquee from "@/components/Marquee";
 import { Toaster } from "react-hot-toast";
 
 const NotoSerifBengali = Noto_Serif_Bengali({
-  subsets: ["latin","bengali"],
+  subsets: ["latin", "bengali"],
 });
 
 
@@ -24,11 +24,26 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${NotoSerifBengali.className} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#E1E8E1]">
-      <HeaderPage/>
-      <Marquee />
+        <HeaderPage />
+        <Marquee />
         {children}
-        <Toaster/>
-        
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            duration: 3000,
+            style: {
+              borderRadius: "9999px",
+              padding: "10px 20px",
+              color: "#0B5429",
+              fontWeight: 600,
+              border: "1px solid #0F6A36",
+            },
+            success: {
+              iconTheme: { primary: "#0F6A36", secondary: "#F6E81E" },
+            },
+          }}
+        />
+
       </body>
     </html>
   );

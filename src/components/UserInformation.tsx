@@ -3,14 +3,7 @@
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-
-/*
-  Color palette
-  Primary Green : #0F6A36  -> buttons, main theme
-  Dark Green    : #0B5429  -> headings, important text
-  Yellow        : #F6E81E  -> highlights, accents
-  White         : #FFFFFF  -> cards, background
-*/
+import toast from "react-hot-toast";
 
 const UserInformation = () => {
     const { data: session, isPending } = authClient.useSession();
@@ -18,7 +11,14 @@ const UserInformation = () => {
     const router = useRouter();
 
     const handleSignOut = async () => {
-        await authClient.signOut();
+        const { error } = await authClient.signOut();
+
+        if (error) {
+            toast.error("সাইন আউট করা যায়নি। আবার চেষ্টা করুন।");
+            return;
+        }
+
+        toast.success("সফলভাবে সাইন আউট হয়েছে");
         router.push("/");
     };
 

@@ -58,17 +58,25 @@ const SignIn = () => {
     };
 
     const signInGoogle = async () => {
-        await authClient.signIn.social({
+        const { error } = await authClient.signIn.social({
             provider: "google",
             callbackURL: "/",
         });
+
+        if (error) {
+            toast.error(error.message || "Google দিয়ে সাইন ইন করা যায়নি!");
+        }
     };
 
     const signInGithub = async () => {
-        await authClient.signIn.social({
+        const { error } = await authClient.signIn.social({
             provider: "github",
             callbackURL: "/",
         });
+
+        if (error) {
+            toast.error(error.message || "GitHub দিয়ে সাইন ইন করা যায়নি!");
+        }
     };
 
     return (
