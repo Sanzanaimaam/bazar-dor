@@ -1,6 +1,6 @@
  <div align="center">
 
-<img src="assets/banner.svg" alt="Bazar Dor — Know the market price. Shop smarter, every day." width="100%"/>
+<img src="assets/banner (1).svg" alt="Bazar Dor — Know the market price. Shop smarter, every day." width="100%"/>
 
 ![Status](https://img.shields.io/badge/STATUS-ACTIVE-0F6A36?style=for-the-badge&labelColor=0B5429)
 ![Version](https://img.shields.io/badge/VERSION-1.0.0-F6E81E?style=for-the-badge&labelColor=0B5429)
@@ -14,7 +14,6 @@
 
 </div>
 
-<img src="assets/section-about.svg" alt="About" width="100%"/>
 
 ## About Bazar Dor
 
@@ -23,8 +22,6 @@
 The platform provides a simple and user-friendly experience for discovering everyday products and their prices.
 
 > 🟡 **Our Mission:** Make market price information simple and accessible to everyone.
-
-<img src="assets/section-features.svg" alt="Features" width="100%"/>
 
 ## Features
 
@@ -37,7 +34,6 @@ The platform provides a simple and user-friendly experience for discovering ever
 - 📱 **Responsive Design:** User-friendly interface across different screen sizes.
 - 🔔 **Toast Notifications:** Receive feedback through toast messages.
 
-<img src="assets/section-stack.svg" alt="Tech Stack" width="100%"/>
 
 ## Technology Stack
 
@@ -52,8 +48,6 @@ The platform provides a simple and user-friendly experience for discovering ever
 ![Vercel](https://img.shields.io/badge/Vercel-Deployment-000000?style=for-the-badge&logo=vercel)
 
 </div>
-
-<img src="assets/section-start.svg" alt="Getting Started" width="100%"/>
 
 ## Getting Started
 
@@ -116,8 +110,6 @@ The project uses the following environment variables. Add their values to your l
 
 > ⚠️ Never commit `.env.local` or expose your secret values publicly.
 
-<img src="assets/section-structure.svg" alt="Project Structure" width="100%"/>
-
 ## Project Structure
 
 ```text
@@ -142,8 +134,6 @@ bazar-dor/
 └── README.md
 ```
 
-<img src="assets/section-roadmap.svg" alt="Roadmap" width="100%"/>
-
 ## Future Improvements
 
 - [ ] 🌿 Price trend visualization
@@ -152,7 +142,6 @@ bazar-dor/
 - [ ] 🟡 Improved multilingual experience
 - [ ] 🟡 Additional market information
 
-<img src="assets/section-contribute.svg" alt="Contributing" width="100%"/>
 
 ## Contributing
 
@@ -179,7 +168,6 @@ Contributions are welcome!
 
 5. Open a Pull Request.
 
-<img src="assets/section-license.svg" alt="License and Contact" width="100%"/>
 
 ## License
 
@@ -195,7 +183,6 @@ This project is developed for educational and learning purposes.
 
 <div align="center">
 
-<img src="assets/divider.svg" alt="" width="100%"/>
 
 ### 💚 Made with care for every market-goer 💛
 
